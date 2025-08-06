@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Projects - Naincy Shukla</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    /* Match Home page banner style */
+    .project-banner {
+      background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .project-banner h1 {
+      font-size: 40px;
+      font-weight: bold;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+    }
+
+    .projects-section {
+      padding: 50px 40px;
+      background-color: #f9f9f9;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      cursor: pointer;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .project-card h3 {
+      font-size: 18px;
+      margin: 15px 10px 10px;
+    }
+
+    .project-card p {
+      font-size: 14px;
+      color: #555;
+      margin: 0 10px 10px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: #111827;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .topbar nav a {
+      margin-left: 20px;
+      color: white;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #007BFF;
+      text-decoration: underline;
+    }
+
+    a.card-link {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="topbar">
+    <div class="logo">Portfolio</div>
+    <nav>
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('my_resume') }}">My Resume</a>
+      <a href="{{ url_for('projects') }}">Projects</a>
+      <a href="{{ url_for('blog') }}">Blog</a>
+      <a href="{{ url_for('contact') }}">Contact Info</a>
+    </nav>
+  </header>
+
+  <!-- Projects Header -->
+  <div class="project-banner">
+    <h1>Projects</h1>
+  </div>
+
+  <!-- Project Cards -->
+  <section class="projects-section">
+    <div class="project-grid">
+
+      {% set project_data = [
+        {'image': 'assets/resume-ai.png', 'title': 'All ML Algorithm Practice', 'description': 'A comprehensive notebook of ML algorithms with examples and visualizations.', 'link': 'https://github.com/naincy1229/All-ML-Algorithm-Practice'},
+        {'image': 'assets/resume.png', 'title': 'Career Copilot AI', 'description': 'End-to-end job assistant with resume analysis, JD matching, and interview prep.', 'link': 'https://github.com/naincy1229/Career_Copilot_AI12'},
+        {'image': 'assets/chatbot-langchain.png', 'title': 'Chatbot', 'description': 'Gemini-powered chatbot for answering real-time queries.', 'link': 'https://github.com/naincy1229/chatbot'},
+        {'image': 'assets/whatsapp.png', 'title': 'WhatsApp Chat Analyzer', 'description': 'Analyze WhatsApp chat data for insights and visualization.', 'link': 'https://github.com/naincy1229/whatsapp-chat-analyzer'},
+        {'image': 'assets/image-generator.png', 'title': 'Image Upload App', 'description': 'Upload and store images using a simple web interface.', 'link': 'https://github.com/naincy1229/image-upload-app'},
+        {'image': 'assets/vision.png', 'title': 'AI Vision Suite', 'description': 'Face detection and emotion recognition using computer vision.', 'link': 'https://github.com/naincy1229/ai-vision-suite'},
+        {'image': 'assets/interview.png', 'title': 'Interview AI Agent', 'description': 'Mock interview bot using LangChain and OpenAI.', 'link': 'https://github.com/naincy1229/Interview-AI-Agent'},
+        {'image': 'assets/summarizer.png', 'title': 'Summarize Text', 'description': 'Summarize long-form text using NLP models.', 'link': 'https://github.com/naincy1229/summarize_text'},
+        {'image': 'assets/fake-news.png', 'title': 'Fake News Detector', 'description': 'Detect fake news articles using machine learning.', 'link': 'https://github.com/naincy1229/fake_news_detector'},
+        {'image': 'assets/movie-recommender.png', 'title': 'Movie Recommender System', 'description': 'Recommend movies based on preferences and watch history.', 'link': 'https://github.com/naincy1229/movie-recommender-system'}
+      ] %}
+
+      {% for p in project_data %}
+      <a href="{{ p.link }}" target="_blank" class="card-link">
+        <div class="project-card">
+          <img src="{{ url_for('static', filename=p.image) }}" alt="Project Image">
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.description }}</p>
+        </div>
+      </a>
+      {% endfor %}
+
+    </div>
+  </section>
+
+  <footer>
+    <p style="text-align:center;">© Created by Naincy Shukla</p>
+  </footer>
+</body>
+</html>

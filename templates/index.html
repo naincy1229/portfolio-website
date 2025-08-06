@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Naincy Shukla | Portfolio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">Portfolio</div>
+    <nav>
+       <a href="{{ url_for('index') }}">Home</a>
+       <a href="{{ url_for('my_resume') }}">My Resume</a>
+       <a href="{{ url_for('projects') }}">Projects</a>
+       <a href="{{ url_for('blog') }}">Blog</a>
+       <a href="{{ url_for('contact') }}">Contact Info</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Naincy Shukla</h1>
+  </section>
+<section class="about" style="display: flex; flex-direction: column; align-items: center; text-align: center; padding: 40px 20px;">
+  
+  <!-- Profile Image -->
+  <div class="profile-img" style="margin-bottom: 20px;">
+    <img src="{{ url_for('static', filename='assets/naincy.jpg') }}" 
+         alt="My Photo" 
+         style="width: 180px; height: 180px; object-fit: cover; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+  </div>
+
+    <div class="bio">
+      <h2>About Me</h2>
+      <p>
+       I am a 19-year-old Computer Science enthusiast, currently pursuing a B.Tech in Computer Science from KNIPSS College, Sultanpur, with an expected graduation in 2026.
+      </p>
+      <p>
+       I completed my higher secondary education in 2022 and secondary schooling in 2020, with a strong academic foundation in science and technology. These early academic experiences helped shape my interest in how computers work and how they can be used to solve real-world problems.
+      </p>
+      <p>
+        My fascination with technology drives my passion for coding, exploring emerging tech trends, and creating smart, practical solutions to modern challenges. I am consistently working to improve my skills in programming, problem-solving, and software development, while diving deeper into cutting-edge fields like Artificial Intelligence, Machine Learning, and Data Science.
+      </p>
+      <p>Outside of academics, I enjoy exploring simulation games, reading tech articles, discovering new ideas through YouTube, and staying up-to-date with the fast-paced world of innovation. I believe that the best way to grow is through consistency, curiosity, and a strong growth mindset — striving every day to become a better version of myself.
+      </p>
+      <p>My long-term goal is to become a skilled and impactful developer who contributes meaningfully to the tech community and builds solutions that make a difference.
+      </p>
+__________________________________________________________________________________________________________________
+      <h3>Few keywords which define me are:-</h3>
+      <ul>
+        <li><i>Passionate</i></li>
+        <li><i>Meticulous</i></li>
+        <li><i>Logical</i></li>
+        <li><i>Curious</i></li>
+        <li><i>Team Player</i></li>
+        <li><i>Creative</i></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>© Created by Naincy Shukla</p>
+  </footer>
+</body>
+</html>
+

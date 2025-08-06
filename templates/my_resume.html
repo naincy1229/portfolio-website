@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Resume - Naincy Shukla</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .topbar {
+      background-color: #0f172a;
+      padding: 16px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+    .resume-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 80px 20px;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                  url('https://source.unsplash.com/1600x900/?technology,abstract') no-repeat center center;
+      background-size: cover;
+      color: white;
+      border-radius: 12px;
+    }
+
+    .resume-img, .resume-info {
+      flex: 1 1 300px;
+      max-width: 500px;
+    }
+
+    .resume-img img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .resume-img img:hover {
+      transform: scale(1.02);
+    }
+
+    .btn-download {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    }
+
+    .btn-download:hover {
+      background-color: #1d4ed8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #0f172a;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="logo">Portfolio</div>
+    <nav>
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('my_resume') }}">My Resume</a>
+      <a href="{{ url_for('projects') }}">Projects</a>
+      <a href="{{ url_for('blog') }}">Blog</a>
+       <a href="{{ url_for('contact') }}">Contact Info</a>
+    </nav>
+  </header>
+
+  <section class="resume-section">
+    <div class="resume-img">
+      <img src="{{ url_for('static', filename='assets/naincy_photo.png') }}" alt="Naincy Shukla Photo">
+    </div>
+
+    <div class="resume-info">
+      <h2 style="margin-bottom: 20px;">Download My Resume</h2>
+      <a href="{{ url_for('static', filename='assets/naincy_resume.pdf') }}" download class="btn-download">
+        📄 Download PDF Resume
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© Created by Naincy Shukla</p>
+  </footer>
+</body>
+</html>
